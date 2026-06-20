@@ -30,8 +30,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <body className="font-sans antialiased">
+        {/* Apply the saved theme before paint to avoid a flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.theme==='light')document.documentElement.classList.add('light')}catch(e){}",
+          }}
+        />
         <Providers>{children}</Providers>
       </body>
     </html>

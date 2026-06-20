@@ -9,6 +9,7 @@ import { PlanForm } from "./components/PlanForm";
 import { MealPlan } from "./components/MealPlan";
 import { Ledger } from "./components/Ledger";
 import { Substitutions } from "./components/Substitutions";
+import { ThemeToggle } from "./components/ThemeToggle";
 
 export default function Home() {
   // Stable per-tab session id so this browser reads back its own plan.
@@ -59,6 +60,9 @@ export default function Home() {
         {/* Scrims keep the headline legible over the busy flat-lay. */}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        <div className="absolute right-4 top-4 z-10">
+          <ThemeToggle />
+        </div>
         <div className="relative p-8 md:p-12">
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-turmeric">
             PromptWars · a cooking to-do list
@@ -108,6 +112,13 @@ export default function Home() {
 function Placeholder() {
   return (
     <div className="flex min-h-[280px] flex-col items-center justify-center rounded-2xl border border-dashed border-edge p-8 text-center">
+      <Image
+        src="/empty-plate.png"
+        alt=""
+        width={132}
+        height={132}
+        className="mb-4 opacity-90"
+      />
       <p className="font-display text-2xl text-cream/80">Your plan appears here</p>
       <p className="mt-2 max-w-xs text-sm text-cream/50">
         Fill in your day on the left and press <em>Plan my day</em>.

@@ -141,17 +141,17 @@ export function PlanForm({
           width: 100%;
           min-height: 44px; /* touch target */
           border-radius: 0.7rem;
-          border: 1px solid #4d3e2b;
-          background: #1d160f;
+          border: 1px solid var(--color-edge);
+          background: var(--color-ink);
           padding: 0.6rem 0.8rem;
           font-size: 1rem; /* 16px — avoids iOS focus-zoom */
-          color: #efe2cc;
+          color: var(--color-cream);
         }
         :global(.field:focus) {
           border-color: #e6a92b;
         }
         :global(.field::placeholder) {
-          color: #a4906f; /* lifted for contrast on ink */
+          color: color-mix(in srgb, var(--color-cream) 45%, transparent);
         }
       `}</style>
     </form>

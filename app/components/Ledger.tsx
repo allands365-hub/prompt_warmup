@@ -42,7 +42,7 @@ export function Ledger({
   return (
     <section
       aria-label="Grocery receipt and budget"
-      className="rise overflow-hidden rounded-2xl bg-paper text-ink shadow-ticket"
+      className="rise overflow-hidden rounded-2xl bg-paper text-receiptink shadow-ticket"
     >
       <div className="border-b border-dashed border-paper-line px-6 py-4">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-clay">
@@ -56,7 +56,7 @@ export function Ledger({
           <ReceiptLine key={item.name} item={item} cut={cuts?.has(item.name) ?? false} />
         ))}
         {toBuy.length === 0 && (
-          <li className="py-3 text-sm text-ink/70">
+          <li className="py-3 text-sm text-receiptink/70">
             Nothing to buy — your pantry has it covered.
           </li>
         )}
@@ -64,10 +64,10 @@ export function Ledger({
 
       {haveAlready.length > 0 && (
         <div className="px-6 pb-2 pt-1">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/55">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-receiptink/55">
             Already in your pantry
           </p>
-          <p className="text-sm text-ink/65">
+          <p className="text-sm text-receiptink/65">
             {haveAlready.map((g) => g.name).join(" · ")}
           </p>
         </div>
@@ -93,7 +93,7 @@ export function Ledger({
 
         {cuts !== null && (
           <div className="mt-4 rounded-lg border border-coriander/40 bg-coriander/10 p-4">
-            <p className="text-sm text-ink/80">
+            <p className="text-sm text-receiptink/80">
               Skip the struck-through items and your total drops to{" "}
               <span className="font-mono font-semibold">₹{trimmedTotal}</span>
               {trimmedFits ? (
@@ -107,7 +107,7 @@ export function Ledger({
             <button
               type="button"
               onClick={() => setCuts(null)}
-              className="mt-2 cursor-pointer text-xs font-medium text-ink/60 underline-offset-2 hover:underline"
+              className="mt-2 cursor-pointer text-xs font-medium text-receiptink/60 underline-offset-2 hover:underline"
             >
               Undo
             </button>
@@ -125,10 +125,10 @@ function ReceiptLine({ item, cut }: { item: GroceryItem; cut: boolean }) {
         cut ? "opacity-55" : ""
       }`}
     >
-      <span className={`font-medium text-ink ${cut ? "line-through" : ""}`}>
+      <span className={`font-medium text-receiptink ${cut ? "line-through" : ""}`}>
         {item.name}
       </span>
-      <span className="text-ink/55">{item.quantity}</span>
+      <span className="text-receiptink/55">{item.quantity}</span>
       {cut && (
         <span className="rounded bg-chili/15 px-1.5 font-mono text-[10px] uppercase tracking-wide text-chili">
           skip
@@ -136,7 +136,7 @@ function ReceiptLine({ item, cut }: { item: GroceryItem; cut: boolean }) {
       )}
       <span className="flex-1 border-b border-dotted border-paper-line" aria-hidden />
       <span
-        className={`font-mono tabular-nums text-ink ${cut ? "line-through" : ""}`}
+        className={`font-mono tabular-nums text-receiptink ${cut ? "line-through" : ""}`}
       >
         ₹{Math.round(item.cost)}
       </span>
@@ -157,7 +157,7 @@ function Row({
     <div className="flex items-baseline justify-between py-0.5">
       <span
         className={`font-mono text-xs uppercase tracking-[0.15em] ${
-          muted ? "text-ink/60" : "text-ink/75"
+          muted ? "text-receiptink/60" : "text-receiptink/75"
         }`}
       >
         {label}
@@ -172,7 +172,7 @@ function Stamp({ verdict }: { verdict: BudgetVerdict }) {
     return (
       <div className="inline-flex -rotate-2 items-center gap-2 rounded-md border-2 border-coriander px-4 py-2 font-mono text-sm font-bold uppercase tracking-[0.2em] text-coriander">
         ✓ Feasible
-        <span className="font-normal normal-case tracking-normal text-ink/70">
+        <span className="font-normal normal-case tracking-normal text-receiptink/70">
           ₹{verdict.budget - verdict.totalCost} to spare
         </span>
       </div>

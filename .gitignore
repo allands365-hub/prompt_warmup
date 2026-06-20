@@ -17,3 +17,7 @@
 .DS_Store
 *.log
 *.tsbuildinfo
+
+# local dev artifacts (keep /public assets, ignore root screenshots)
+/.playwright-mcp/
+/*.png
