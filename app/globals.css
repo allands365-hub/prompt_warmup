@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4 — theme is defined here in CSS, not in a JS config.
+ * "Aaj ka Kitchen Ledger" palette: a spice tin on warm cast-iron.
+ * Deliberately warm-toned with several spice accents instead of one acid
+ * accent, to avoid the generic dark-mode default.
+ */
+@theme {
+  --color-ink: #17120d;
+  --color-panel: #241a12;
+  --color-raised: #2e2318;
+  --color-edge: #3a2c1d;
+  --color-paper: #f4e8d2;
+  --color-paper-line: #d9c6a4;
+  --color-cream: #efe2cc;
+  --color-turmeric: #e6a92b;
+  --color-coriander: #7fa857;
+  --color-chili: #c8412a;
+  --color-clay: #b5663c;
+
+  /* next/font injects the face into these *-face vars; we compose the stack. */
+  --font-display: var(--font-display-face), Georgia, serif;
+  --font-sans: var(--font-body-face), system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+
+  --shadow-ticket: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1100px 600px at 85% -15%, rgba(230, 169, 43, 0.1), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(181, 102, 60, 0.08), transparent 55%),
+    #17120d;
+  color: #efe2cc;
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor. */
+:focus-visible {
+  outline: 2px solid #e6a92b;
+  outline-offset: 2px;
+}
+
+/* The ledger receipt sits on warm cream paper with faint ruled lines. */
+.paper-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(217, 198, 164, 0.55) 31px,
+    rgba(217, 198, 164, 0.55) 32px
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+/* Don't spin for users who asked for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin {
+    animation: none;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
