@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e6]:
+      - paragraph [ref=e7]: PromptWars · a cooking to-do list
+      - heading "Aaj ka Kitchen" [level=1] [ref=e8]
+      - paragraph [ref=e9]: Tell us about your day. We'll plan breakfast, lunch and dinner, write your grocery receipt, swap what you can't eat, and make sure it all fits your budget.
+    - generic [ref=e10]:
+      - form "Plan your cooking day" [ref=e11]:
+        - paragraph [ref=e12]: Your day
+        - group "Diet" [ref=e13]:
+          - generic [ref=e14]: Diet
+          - generic [ref=e15]:
+            - button "Veg" [pressed] [ref=e16] [cursor=pointer]
+            - button "Non-veg" [ref=e17] [cursor=pointer]
+            - button "Vegan" [ref=e18] [cursor=pointer]
+        - group "Time to cook today" [ref=e19]:
+          - generic [ref=e20]: Time to cook today
+          - generic [ref=e21]:
+            - button "Quick" [ref=e22] [cursor=pointer]
+            - button "Medium" [pressed] [ref=e23] [cursor=pointer]
+            - button "Elaborate" [ref=e24] [cursor=pointer]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e28]: Daily budget (₹)
+            - spinbutton "Daily budget (₹)" [ref=e29]: "300"
+          - generic [ref=e30]:
+            - generic [ref=e32]: Servings
+            - spinbutton "Servings" [ref=e33]: "2"
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: Allergies / dislikes
+            - generic [ref=e37]: comma-separated
+          - textbox "Allergies / dislikes comma-separated" [ref=e38]:
+            - /placeholder: peanuts, gluten
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: Already in your pantry
+            - generic [ref=e42]: we won't make you buy it again
+          - textbox "Already in your pantry we won't make you buy it again" [ref=e43]:
+            - /placeholder: rice, onions, oil
+        - button "Plan my day" [ref=e44] [cursor=pointer]
+      - generic [ref=e46]:
+        - paragraph [ref=e47]: Your plan appears here
+        - paragraph [ref=e48]:
+          - text: Fill in your day on the left and press
+          - emphasis [ref=e49]: Plan my day
+          - text: .
+    - generic [ref=e50]: Meals by AI · grocery, swaps & budget by deterministic logic
+  - button "Open Next.js Dev Tools" [ref=e56] [cursor=pointer]:
+    - img [ref=e57]

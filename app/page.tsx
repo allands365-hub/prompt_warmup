@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useAction, useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import type { PlanInput } from "../lib/types";
@@ -46,19 +47,31 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-12 md:py-16">
-      <header className="mb-10">
-        <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-turmeric/80">
-          PromptWars · a cooking to-do list
-        </p>
-        <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.05] text-cream md:text-6xl">
-          Aaj ka{" "}
-          <span className="text-turmeric">Kitchen</span>
-        </h1>
-        <p className="mt-3 max-w-xl text-lg text-cream/70">
-          Tell us about your day. We&apos;ll plan breakfast, lunch and dinner,
-          write your grocery receipt, swap what you can&apos;t eat, and make sure
-          it all fits your budget.
-        </p>
+      <header className="relative mb-10 overflow-hidden rounded-3xl border border-edge">
+        <Image
+          src="/hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 1024px"
+          className="object-cover object-right"
+        />
+        {/* Scrims keep the headline legible over the busy flat-lay. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        <div className="relative p-8 md:p-12">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-turmeric">
+            PromptWars · a cooking to-do list
+          </p>
+          <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.05] text-cream md:text-6xl">
+            Aaj ka <span className="text-turmeric">Kitchen</span>
+          </h1>
+          <p className="mt-4 max-w-md text-lg text-cream/85">
+            Tell us about your day. We&apos;ll plan breakfast, lunch and dinner,
+            write your grocery receipt, swap what you can&apos;t eat, and make sure
+            it all fits your budget.
+          </p>
+        </div>
       </header>
 
       <div className="grid gap-8 md:grid-cols-[minmax(0,360px)_1fr] md:items-start">
